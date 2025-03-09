@@ -1,9 +1,10 @@
-from django.contrib.auth import get_user_model
-from rest_framework import serializers
+from rest_framework.serializers import ModelSerializer, HyperlinkedIdentityField
 from webapp.models import Tasks
 
 
-class TasksSerializer(serializers.ModelSerializer):
+class TasksSerializer(ModelSerializer):
+    url = HyperlinkedIdentityField(read_only=True, view_name='tasks-detail')
+
     class Meta:
         model = Tasks
         fields = '__all__'
