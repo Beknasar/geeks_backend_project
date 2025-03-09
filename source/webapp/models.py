@@ -8,7 +8,7 @@ class Tasks(models.Model):
     created = models.DateField(auto_now_add=True, verbose_name='Дата создания')
 
     def __str__(self):
-        return "{}. {}".format(self.pk, self.summary)
+        return "{}. {}".format(self.pk, self.title)
 
     class Meta:
         verbose_name = "Задача"
